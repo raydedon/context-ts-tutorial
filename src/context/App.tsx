@@ -10,7 +10,7 @@ interface IAppState {
 
 // An intermediate component that uses the ThemedButton
 export default class App extends React.Component<IAppProps, IAppState> {
-	constructor(props) {
+	constructor(props: IAppProps) {
 		super(props);
 		this.state = {
 			theme: themes.light,
@@ -18,7 +18,7 @@ export default class App extends React.Component<IAppProps, IAppState> {
 		
 	}
 	
-	toggleTheme() {
+	public toggleTheme() {
 		this.setState(state => ({
 			theme:
 				state.theme === themes.dark
@@ -27,7 +27,7 @@ export default class App extends React.Component<IAppProps, IAppState> {
 		}));
 	}
 
-	render() {
+	public render() {
 		// The ThemedButton button inside the ThemeProvider
 		// uses the theme from state while the one outside uses
 		// the default dark theme
