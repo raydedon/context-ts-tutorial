@@ -11,6 +11,10 @@ export const themes = {
 	},
 };
 
-export const ThemeContext = React.createContext(
+export interface ITheme {
+	background: string;
+	foreground: string;
+};
+export const ThemeContext: React.Context<ITheme> = React.createContext(
 	themes.dark // default value
 );

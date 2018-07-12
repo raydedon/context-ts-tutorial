@@ -6,7 +6,7 @@ interface ITheme {
 }
 
 export interface IThemedButtonProps {
-	onClick: () => void;
+	onClick?: () => void;
 }
 
 const ThemedButton: React.SFC<IThemedButtonProps> = (props) => {

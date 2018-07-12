@@ -1,16 +1,15 @@
 import * as React from 'react';
-import {ThemeContext, themes} from './theme-context';
+import {ITheme, ThemeContext, themes} from './theme-context';
 import ThemedButton from './themed-button';
 import Toolbar from "./toolbar";
 
-interface IAppProps {}
 interface IAppState {
-	theme: {}
+	theme: ITheme;
 }
 
 // An intermediate component that uses the ThemedButton
-export default class App extends React.Component<IAppProps, IAppState> {
-	constructor(props: IAppProps) {
+export default class App extends React.Component<{}, IAppState> {
+	constructor(props: {}) {
 		super(props);
 		this.state = {
 			theme: themes.light,
@@ -20,10 +19,7 @@ export default class App extends React.Component<IAppProps, IAppState> {
 	
 	public toggleTheme() {
 		this.setState(state => ({
-			theme:
-				state.theme === themes.dark
-					? themes.light
-					: themes.dark,
+			theme: state.theme === themes.dark ? themes.light : themes.dark,
 		}));
 	}
 
@@ -36,9 +32,9 @@ export default class App extends React.Component<IAppProps, IAppState> {
 				<ThemeContext.Provider value={this.state.theme}>
 					<Toolbar changeTheme={this.toggleTheme} />
 				</ThemeContext.Provider>
-				<Section>
+				<section>
 					<ThemedButton />
-				</Section>
+				</section>
 			</div>
 		);
 	}
