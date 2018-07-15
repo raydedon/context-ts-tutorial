@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {MemberContext} from './MemberContext';
 
-const Member: React.SFC<{}> = (props) => {
+const Member: React.SFC<{}> = () => {
 	return (
 		<MemberContext.Consumer>
 			{({age, gender, name, growOlder}) => {
