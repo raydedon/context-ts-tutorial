@@ -1,5 +1,7 @@
+import ContextApp from "./ContextApp";
+
 export interface IFamilyAction {
-	growOlder: (step: number) => void;
+	growOlder: (this: ContextApp, step: number) => void;
 }
 
 export interface IFamilyMemberProperties {

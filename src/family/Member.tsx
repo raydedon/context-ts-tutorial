@@ -10,7 +10,7 @@ const Member: React.SFC<{}> = (props) => {
 						<div>{name}</div>
 						<div>{age}</div>
 						<div>{gender}</div>
-						<button onClick={growOlder.bind(null, 2)}>Grow Older</button>
+						<button onClick={growOlder.bind(undefined, 2)}>Grow Older</button>
 					</React.Fragment>
 				)
 			}

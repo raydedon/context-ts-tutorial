@@ -5,7 +5,7 @@ import {MemberContext} from './MemberContext';
 
 import * as React from 'react';
 
-export default class ConstextApp extends React.Component<{}, IFamilyMemberProperties> {
+export default class ContextApp extends React.Component<{}, IFamilyMemberProperties> {
 	constructor(props: {}) {
 		super(props);
 		
