@@ -1,7 +1,11 @@
-import * as React from 'react';
-import {default as Family, Gender, IFamilyMember} from "./Family";
+import Family from "./Family";
 
-export default class ConstextApp extends React.Component<{}, IFamilyMember> {
+import {Gender, IFamilyMemberProperties} from "./definitions";
+import {MemberContext} from './MemberContext';
+
+import * as React from 'react';
+
+export default class ConstextApp extends React.Component<{}, IFamilyMemberProperties> {
 	constructor(props: {}) {
 		super(props);
 		
@@ -14,7 +18,12 @@ export default class ConstextApp extends React.Component<{}, IFamilyMember> {
 	
 	public render() {
 		return (
-			<Family {...this.state}/>
+			<MemberContext.Provider value={{
+				...this.state,
+				growOlder: (step) => {this.setState(({age}) => ({age: age+step}))}
+			}}>
+				<Family />
+			</MemberContext.Provider>
 		);
 	}
 }

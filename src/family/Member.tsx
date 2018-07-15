@@ -1,13 +1,21 @@
 import * as React from 'react';
-import {IFamilyMember} from "./Family";
+import {MemberContext} from './MemberContext';
 
-const Member: React.SFC<IFamilyMember> = ({age, gender, name}) => {
+const Member: React.SFC<{}> = (props) => {
 	return (
-		<React.Fragment>
-			<div>{age}</div>
-			<div>{gender}</div>
-			<div>{name}</div>
-		</React.Fragment>
+		<MemberContext.Consumer>
+			{({age, gender, name, growOlder}) => {
+				return (
+					<React.Fragment>
+						<div>{name}</div>
+						<div>{age}</div>
+						<div>{gender}</div>
+						<button onClick={growOlder.bind(null, 2)}>Grow Older</button>
+					</React.Fragment>
+				)
+			}
+			}
+		</MemberContext.Consumer>
 	);
 };
 
