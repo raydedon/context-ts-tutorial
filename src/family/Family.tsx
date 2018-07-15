@@ -1,9 +1,14 @@
 import * as React from 'react';
-import Member from "./member";
+import Member from "./Member";
+
+export enum Gender {
+	MALE = 'MALE',
+	FEMALE = 'FEMALE',
+}
 
 export interface IFamilyMember {
 	age: number;
-	gender: 'MALE' | 'FEMALE';
+	gender: Gender;
 	name: string;
 }
 
@@ -12,22 +17,11 @@ export interface IFamily {
 	son: IFamilyMember;
 }
 
-export default class Family extends React.Component<{}, IFamilyMember> {
-	constructor(props: {}) {
-		super(props);
-		
-		this.state = {
-			age: 32,
-			gender: 'MALE',
-			name: 'Animesh',
-		}
-	}
-	
-	public render() {
-		return (
-			<div>
-				<Member {...this.state}/>
-			</div>
-		);
-	}
-}
+const Family: React.SFC<IFamilyMember> = (props) => (
+	<div>
+		<Member {...props}/>
+	</div>
+);
+
+
+export default Family;
